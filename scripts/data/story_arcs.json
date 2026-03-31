@@ -1,0 +1,44 @@
+{
+  "arcs": [
+    {
+      "id": "arc.bootstrap.colony",
+      "title": "First Shelter",
+      "phase": "bootstrap",
+      "unlock_conditions": ["landed_on_planet", "core_power_online"]
+    },
+    {
+      "id": "arc.farming.expansion",
+      "title": "Feeding the Colony",
+      "phase": "expansion",
+      "unlock_conditions": ["greenhouse_built", "water_loop_stable"]
+    },
+    {
+      "id": "arc.logistics.earth_bridge",
+      "title": "Earth Supply Chain",
+      "phase": "logistics",
+      "unlock_conditions": ["cargo_port_online", "reputation_earth_guild_2"]
+    },
+    {
+      "id": "arc.shipyard.era",
+      "title": "Shipyard Era",
+      "phase": "industrial",
+      "unlock_conditions": ["factory_online", "alloy_output_threshold"]
+    }
+  ],
+  "mission_templates": [
+    {
+      "id": "mission.habitat.foundation",
+      "arc_id": "arc.bootstrap.colony",
+      "title": "Build Habitat MK1",
+      "objectives": ["gather_materials", "complete_habitat_recipe", "activate_life_support"],
+      "reward": {"credits": 2500, "reputation": 1}
+    },
+    {
+      "id": "mission.harvest.protocol",
+      "arc_id": "arc.farming.expansion",
+      "title": "First Hydroponic Harvest",
+      "objectives": ["seed_trays", "stabilize_nutrients", "deliver_harvest"],
+      "reward": {"credits": 3200, "unlock": "carrier_bot_tier2"}
+    }
+  ]
+}
