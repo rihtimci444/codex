@@ -1,0 +1,25 @@
+{
+  "zones": [
+    {"id": "z_landing", "name": "Landing Zone", "x": 0, "y": 0, "radius": 120},
+    {"id": "z_habitat", "name": "Habitat Core", "x": 180, "y": 40, "radius": 90},
+    {"id": "z_greenhouse", "name": "Greenhouse Belt", "x": 260, "y": -120, "radius": 110},
+    {"id": "z_shipyard", "name": "Shipyard", "x": -210, "y": 160, "radius": 140},
+    {"id": "z_logistics", "name": "Cargo Port", "x": -260, "y": -140, "radius": 100},
+    {"id": "z_mining", "name": "Mining Ridge", "x": 420, "y": 260, "radius": 160},
+    {"id": "z_repair", "name": "Vehicle Repair Bay", "x": 40, "y": -220, "radius": 80}
+  ],
+  "routes": [
+    {"from": "z_landing", "to": "z_habitat", "type": "road"},
+    {"from": "z_habitat", "to": "z_greenhouse", "type": "service_road"},
+    {"from": "z_habitat", "to": "z_shipyard", "type": "heavy_road"},
+    {"from": "z_habitat", "to": "z_logistics", "type": "cargo_road"},
+    {"from": "z_logistics", "to": "z_shipyard", "type": "freight_line"},
+    {"from": "z_habitat", "to": "z_repair", "type": "service_road"},
+    {"from": "z_shipyard", "to": "z_mining", "type": "drone_corridor"}
+  ],
+  "camera_pois": [
+    {"id": "c_habitat_overview", "zone": "z_habitat", "mode": "top_down"},
+    {"id": "c_drive_route", "zone": "z_repair", "mode": "third_person"},
+    {"id": "c_ship_launch", "zone": "z_shipyard", "mode": "cinematic"}
+  ]
+}

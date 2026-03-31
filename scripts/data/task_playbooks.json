@@ -1,0 +1,99 @@
+{
+  "playbooks": [
+    {
+      "task_id": "pb.01.habitat_bootstrap",
+      "title": "Habitat Bootstrap",
+      "functions": [
+        "validate_build_recipe",
+        "build_inventory_slots",
+        "compute_dynamic_lighting"
+      ],
+      "related_objects": [
+        "BuildRecipe",
+        "InventoryItem",
+        "LightingState"
+      ],
+      "environments": ["planet_surface", "habitat_interior"],
+      "camera_angles": ["top_down", "third_person"],
+      "time_windows": ["day_cycle", "construction_window"],
+      "actions": ["gather_materials", "place_modules", "activate_life_support"],
+      "world_objects": ["steel_beam", "power_cable", "oxygen_filter", "home.habitat.mk1"]
+    },
+    {
+      "task_id": "pb.02.space_farming_loop",
+      "title": "Space Farming Robot Loop",
+      "functions": [
+        "compute_dynamic_lighting",
+        "allocate_robot_fleet_to_jobs",
+        "plan_cargo_robot_routes"
+      ],
+      "related_objects": [
+        "HydroponicBed",
+        "RobotChassis",
+        "MotionCommand"
+      ],
+      "environments": ["greenhouse", "storage_depot"],
+      "camera_angles": ["top_down", "cinematic"],
+      "time_windows": ["grow_cycle", "harvest_cycle"],
+      "actions": ["seed_trays", "harvest", "deliver_to_storage"],
+      "world_objects": ["hydroponic_tray", "carrier_bot_tier2", "water_pipe"]
+    },
+    {
+      "task_id": "pb.03.cargo_from_earth",
+      "title": "Earth Cargo Order and Delivery",
+      "functions": [
+        "advance_story_state",
+        "generate_missions_for_phase",
+        "build_cinematic_shot_plan"
+      ],
+      "related_objects": [
+        "StoryArc",
+        "Mission",
+        "CameraState"
+      ],
+      "environments": ["cargo_port", "orbit_dock", "earth_link_terminal"],
+      "camera_angles": ["third_person", "cinematic"],
+      "time_windows": ["order_time", "eta_window", "delivery_window"],
+      "actions": ["place_order", "track_shipment", "customs_clearance", "unload"],
+      "world_objects": ["shipment_eta", "cargo_manifest", "fuel_station", "battery_pack"]
+    },
+    {
+      "task_id": "pb.04.vehicle_drive_and_repair",
+      "title": "Car Drive + Repair",
+      "functions": [
+        "compute_drive_force",
+        "apply_terrain_response",
+        "integrate_robot_state"
+      ],
+      "related_objects": [
+        "MotorSpec",
+        "RobotState",
+        "TerrainCell"
+      ],
+      "environments": ["road_network", "offroad_zone", "repair_bay"],
+      "camera_angles": ["third_person", "first_person"],
+      "time_windows": ["mission_timer", "repair_window"],
+      "actions": ["drive_route", "consume_fuel", "diagnose_damage", "repair_vehicle"],
+      "world_objects": ["vehicle.car.driving.v1", "vehicle.car.repair.v1", "spare_parts_kit"]
+    },
+    {
+      "task_id": "pb.05.shipyard_launch_readiness",
+      "title": "Shipyard Build and Launch",
+      "functions": [
+        "build_composition_plan",
+        "validate_blueprint",
+        "compute_launch_readiness"
+      ],
+      "related_objects": [
+        "ShipBlueprint",
+        "ShipModule",
+        "ShipValidationReport"
+      ],
+      "environments": ["shipyard_factory", "launch_pad", "orbital_gate"],
+      "camera_angles": ["top_down", "cinematic", "third_person"],
+      "time_windows": ["assembly_window", "launch_window"],
+      "actions": ["assemble_modules", "run_validation", "launch_test"],
+      "world_objects": ["vehicle.spaceship.factory.v1", "reactor.fusion.s1", "engine.ion.m2"]
+    }
+  ]
+}

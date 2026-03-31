@@ -1,0 +1,139 @@
+{
+  "blocks": [
+    {
+      "id": "terrain.grass.biome.v1",
+      "name": "Grass Biome Tile System",
+      "description": "Procedural grass tiles with density, wind sway, and biome variants.",
+      "tags": ["terrain", "grass", "nature", "world"],
+      "input_contract": ["tile_seed", "biome_type", "weather_state"],
+      "output_contract": ["tile_mesh", "material_profile", "spawn_points"],
+      "quality": {"test_pass_rate": 0.97, "perf_cost": "low"}
+    },
+    {
+      "id": "terrain.path.generator.v1",
+      "name": "Footpath Generator",
+      "description": "Organic walking path generation between points of interest.",
+      "tags": ["terrain", "path", "navigation", "world"],
+      "input_contract": ["poi_nodes", "noise_map"],
+      "output_contract": ["path_spline", "walkable_mask"],
+      "quality": {"test_pass_rate": 0.96, "perf_cost": "low"}
+    },
+    {
+      "id": "terrain.road.network.v1",
+      "name": "Road Network Builder",
+      "description": "Road lane generation with intersections and traffic metadata.",
+      "tags": ["terrain", "road", "vehicle", "city"],
+      "input_contract": ["district_graph", "road_rules"],
+      "output_contract": ["road_mesh", "lane_graph", "traffic_nodes"],
+      "quality": {"test_pass_rate": 0.95, "perf_cost": "medium"}
+    },
+    {
+      "id": "vehicle.airplane.flight_controller.v1",
+      "name": "Airplane Flight Controller",
+      "description": "Lift, drag, and waypoint autopilot for atmospheric aircraft.",
+      "tags": ["vehicle", "airplane", "flight", "physics"],
+      "input_contract": ["throttle", "altitude_target", "waypoints"],
+      "output_contract": ["force_vector", "orientation", "flight_state"],
+      "quality": {"test_pass_rate": 0.94, "perf_cost": "medium"}
+    },
+    {
+      "id": "vehicle.spaceship.nav.v1",
+      "name": "Spaceship Navigation Core",
+      "description": "Newtonian movement, docking, and jump-gate routing.",
+      "tags": ["vehicle", "spaceship", "space", "navigation"],
+      "input_contract": ["thrust_input", "dock_target", "route_plan"],
+      "output_contract": ["velocity_state", "dock_status", "eta"],
+      "quality": {"test_pass_rate": 0.95, "perf_cost": "medium"}
+    },
+    {
+      "id": "world.planet.generator.v1",
+      "name": "Planet Generator",
+      "description": "Generates planets with gravity profile, atmosphere, and resource map.",
+      "tags": ["space", "planet", "world", "resource"],
+      "input_contract": ["seed", "planet_class"],
+      "output_contract": ["planet_mesh", "gravity_profile", "resource_nodes"],
+      "quality": {"test_pass_rate": 0.96, "perf_cost": "medium"}
+    },
+    {
+      "id": "station.fuel.refill.v1",
+      "name": "Fuel Refill Station",
+      "description": "Refuel flow for vehicles and ships with queue and payment logic.",
+      "tags": ["station", "fuel", "vehicle", "spaceship"],
+      "input_contract": ["vehicle_id", "fuel_type", "inventory_state"],
+      "output_contract": ["fuel_transaction", "updated_fuel", "receipt_event"],
+      "quality": {"test_pass_rate": 0.98, "perf_cost": "low"}
+    },
+    {
+      "id": "energy.solar.array.v1",
+      "name": "Solar Energy Array",
+      "description": "Solar production model with day-night and battery storage.",
+      "tags": ["energy", "solar", "power", "space"],
+      "input_contract": ["sunlight_intensity", "panel_area", "battery_state"],
+      "output_contract": ["power_output", "battery_delta", "grid_event"],
+      "quality": {"test_pass_rate": 0.97, "perf_cost": "low"}
+    },
+    {
+      "id": "npc.alien.faction.v1",
+      "name": "Alien Faction NPC",
+      "description": "Faction AI with diplomacy, trade, and conflict behaviors.",
+      "tags": ["npc", "alien", "ai", "space"],
+      "input_contract": ["reputation", "territory_state", "player_actions"],
+      "output_contract": ["faction_intent", "npc_orders", "dialogue_hooks"],
+      "quality": {"test_pass_rate": 0.93, "perf_cost": "medium"}
+    },
+    {
+      "id": "farming.space.hydroponics.v1",
+      "name": "Space Farming Hydroponics",
+      "description": "Hydroponic crop cycles for stations and planetary bases.",
+      "tags": ["farming", "space", "food", "simulation"],
+      "input_contract": ["nutrient_mix", "light_cycle", "water_state"],
+      "output_contract": ["crop_growth", "harvest_yield", "maintenance_alert"],
+      "quality": {"test_pass_rate": 0.94, "perf_cost": "low"}
+    },
+    {
+      "id": "construction.base.builder.v1",
+      "name": "Modular Base Construction",
+      "description": "Snap-based construction for habitats, factories, and storage modules.",
+      "tags": ["construction", "base", "building", "simulation"],
+      "input_contract": ["blueprint_id", "resource_inventory", "terrain_slot"],
+      "output_contract": ["placed_module", "resource_delta", "power_link_state"],
+      "quality": {"test_pass_rate": 0.93, "perf_cost": "medium"}
+    },
+    {
+      "id": "vehicle.car.driving.v1",
+      "name": "Planetary Car Driving",
+      "description": "Ground vehicle driving model for roads and off-road terrain.",
+      "tags": ["vehicle", "car", "driving", "road"],
+      "input_contract": ["steer_input", "throttle_input", "surface_type"],
+      "output_contract": ["car_state", "traction_state", "fuel_usage"],
+      "quality": {"test_pass_rate": 0.95, "perf_cost": "low"}
+    },
+    {
+      "id": "vehicle.car.repair.v1",
+      "name": "Vehicle Repair Bay",
+      "description": "Damage diagnosis and repair workflow for ground vehicles.",
+      "tags": ["vehicle", "car", "repair", "maintenance"],
+      "input_contract": ["vehicle_id", "damage_report", "parts_inventory"],
+      "output_contract": ["repair_plan", "repair_time", "vehicle_health"],
+      "quality": {"test_pass_rate": 0.96, "perf_cost": "low"}
+    },
+    {
+      "id": "vehicle.spaceship.factory.v1",
+      "name": "Spaceship Construction Yard",
+      "description": "Construct and assemble spacecraft from modules and resource recipes.",
+      "tags": ["spaceship", "construction", "factory", "space"],
+      "input_contract": ["ship_blueprint", "module_stock", "energy_budget"],
+      "output_contract": ["build_queue", "ship_hull", "launch_ready_state"],
+      "quality": {"test_pass_rate": 0.92, "perf_cost": "high"}
+    },
+    {
+      "id": "logistics.earth.cargo.v1",
+      "name": "Earth Cargo Ordering",
+      "description": "Interplanetary cargo order system from Earth with delay and risk simulation.",
+      "tags": ["logistics", "cargo", "earth", "trade", "space"],
+      "input_contract": ["order_manifest", "budget", "destination_orbit"],
+      "output_contract": ["shipment_eta", "shipping_cost", "customs_events"],
+      "quality": {"test_pass_rate": 0.94, "perf_cost": "medium"}
+    }
+  ]
+}

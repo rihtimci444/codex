@@ -1,0 +1,28 @@
+{
+  "phases": [
+    {
+      "phase": "bootstrap",
+      "cues": [
+        {"cue_id": "music.bootstrap.theme", "cue_type": "music", "start_tick": 0, "duration_ticks": 1200, "intensity": 0.55, "target": "bgm_main"},
+        {"cue_id": "light.sunrise.soft", "cue_type": "lighting", "start_tick": 120, "duration_ticks": 300, "intensity": 0.35, "target": "global_light"},
+        {"cue_id": "sfx.habitat.powerup", "cue_type": "sfx", "start_tick": 240, "duration_ticks": 60, "intensity": 0.70, "target": "habitat_core"}
+      ]
+    },
+    {
+      "phase": "farming_expansion",
+      "cues": [
+        {"cue_id": "music.farm.loop", "cue_type": "music", "start_tick": 0, "duration_ticks": 1600, "intensity": 0.48, "target": "bgm_greenhouse"},
+        {"cue_id": "ambient.greenhouse.hum", "cue_type": "ambient", "start_tick": 0, "duration_ticks": 1600, "intensity": 0.62, "target": "greenhouse_zone"},
+        {"cue_id": "light.growcycle.pulse", "cue_type": "lighting", "start_tick": 300, "duration_ticks": 500, "intensity": 0.50, "target": "grow_lights"}
+      ]
+    },
+    {
+      "phase": "shipyard_launch",
+      "cues": [
+        {"cue_id": "music.launch.tension", "cue_type": "music", "start_tick": 0, "duration_ticks": 900, "intensity": 0.72, "target": "bgm_launch"},
+        {"cue_id": "sfx.engine.spinup", "cue_type": "sfx", "start_tick": 420, "duration_ticks": 120, "intensity": 0.88, "target": "ship_engine"},
+        {"cue_id": "light.launch.alert", "cue_type": "lighting", "start_tick": 450, "duration_ticks": 150, "intensity": 0.90, "target": "shipyard_alarm_lights"}
+      ]
+    }
+  ]
+}

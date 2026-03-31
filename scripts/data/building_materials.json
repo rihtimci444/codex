@@ -1,0 +1,45 @@
+{
+  "materials": [
+    {"id": "steel_beam", "name": "Steel Beam", "category": "structure", "weight_kg": 12.0},
+    {"id": "composite_panel", "name": "Composite Panel", "category": "structure", "weight_kg": 8.0},
+    {"id": "insulation_foam", "name": "Insulation Foam", "category": "insulation", "weight_kg": 3.5},
+    {"id": "glass_module", "name": "Pressure Glass Module", "category": "window", "weight_kg": 10.0},
+    {"id": "power_cable", "name": "Power Cable", "category": "electrical", "weight_kg": 1.0},
+    {"id": "water_pipe", "name": "Water Pipe", "category": "plumbing", "weight_kg": 2.0},
+    {"id": "oxygen_filter", "name": "Oxygen Filter", "category": "life_support", "weight_kg": 4.0},
+    {"id": "solar_cell", "name": "Solar Cell", "category": "energy", "weight_kg": 0.7},
+    {"id": "battery_pack", "name": "Battery Pack", "category": "energy", "weight_kg": 6.5},
+    {"id": "hydroponic_tray", "name": "Hydroponic Tray", "category": "farming", "weight_kg": 5.0}
+  ],
+  "recipes": [
+    {
+      "id": "home.habitat.mk1",
+      "structure_type": "home",
+      "materials": {
+        "steel_beam": 30,
+        "composite_panel": 40,
+        "insulation_foam": 20,
+        "glass_module": 8,
+        "power_cable": 25,
+        "water_pipe": 20,
+        "oxygen_filter": 6,
+        "battery_pack": 6
+      },
+      "required_tools": ["welder", "cutter", "drone_assist"]
+    },
+    {
+      "id": "home.greenhouse.mk1",
+      "structure_type": "greenhouse",
+      "materials": {
+        "steel_beam": 18,
+        "glass_module": 20,
+        "power_cable": 15,
+        "water_pipe": 18,
+        "hydroponic_tray": 24,
+        "solar_cell": 40,
+        "battery_pack": 8
+      },
+      "required_tools": ["assembler_bot", "pipe_toolkit"]
+    }
+  ]
+}

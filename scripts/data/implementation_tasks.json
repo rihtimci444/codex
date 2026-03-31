@@ -1,0 +1,90 @@
+{
+  "tasks": [
+    {
+      "task_id": "task.foundation.domain-contracts",
+      "files": [
+        "scripts/pre_coding_contracts.py",
+        "scripts/story_mission_contracts.py",
+        "scripts/robot_motion_contracts.py",
+        "scripts/camera_system_contracts.py"
+      ],
+      "depends_on": [],
+      "impact": 9.5,
+      "urgency": 9.0,
+      "effort": 4.0,
+      "risk": 2.0
+    },
+    {
+      "task_id": "task.foundation.static-data",
+      "files": [
+        "scripts/data/block_library.json",
+        "scripts/data/story_arcs.json",
+        "scripts/data/building_materials.json"
+      ],
+      "depends_on": ["task.foundation.domain-contracts"],
+      "impact": 8.8,
+      "urgency": 8.2,
+      "effort": 3.0,
+      "risk": 2.0
+    },
+    {
+      "task_id": "task.core.semantic-pipeline",
+      "files": ["scripts/vectorized_assignment.py"],
+      "depends_on": ["task.foundation.domain-contracts", "task.foundation.static-data"],
+      "impact": 9.8,
+      "urgency": 8.5,
+      "effort": 6.0,
+      "risk": 3.0
+    },
+    {
+      "task_id": "task.integration.story-inventory-camera",
+      "files": [
+        "scripts/story_mission_contracts.py",
+        "scripts/camera_system_contracts.py",
+        "scripts/data/story_arcs.json",
+        "scripts/data/building_materials.json"
+      ],
+      "depends_on": ["task.foundation.static-data"],
+      "impact": 8.9,
+      "urgency": 7.9,
+      "effort": 5.0,
+      "risk": 3.0
+    },
+    {
+      "task_id": "task.integration.robot-motion",
+      "files": ["scripts/robot_motion_contracts.py", "docs/robot_motion_simulation_tactics.md"],
+      "depends_on": ["task.foundation.domain-contracts"],
+      "impact": 8.6,
+      "urgency": 7.8,
+      "effort": 5.0,
+      "risk": 3.0
+    },
+    {
+      "task_id": "task.validation.tests",
+      "files": ["scripts/tests/test_vectorized_assignment.py"],
+      "depends_on": [
+        "task.core.semantic-pipeline",
+        "task.integration.story-inventory-camera",
+        "task.integration.robot-motion"
+      ],
+      "impact": 9.4,
+      "urgency": 9.2,
+      "effort": 4.0,
+      "risk": 2.0
+    },
+    {
+      "task_id": "task.docs.enablement",
+      "files": [
+        "docs/next_phase_implementation_plan.md",
+        "docs/space_game_deep_preparation_plan.md",
+        "docs/story_mission_inventory_camera_plan.md",
+        "docs/spacecraft_design_system.md"
+      ],
+      "depends_on": ["task.validation.tests"],
+      "impact": 7.5,
+      "urgency": 6.8,
+      "effort": 3.0,
+      "risk": 1.0
+    }
+  ]
+}
